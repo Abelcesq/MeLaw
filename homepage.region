@@ -407,6 +407,7 @@
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 </script>
+<main class="Main" data-content-field="main-content" style="display:none">{squarespace.main-content}</main>
 {squarespace-footers}
 </body>
 </html>
