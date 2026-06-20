@@ -345,7 +345,7 @@
       <p>Tell us about your matter and we'll show you how our firm can protect your exposure and control your costs.</p>
       <div class="cta-row">
         <a href="tel:+19493730777" class="btn btn-gold">Call 949.373.0777</a>
-        <a href="mailto:info@defendmelaw.com" class="btn btn-ghost">Request a consultation</a>
+        <a href="https://www.defendmelaw.com/contact-us" class="btn btn-ghost">Request a consultation</a>
       </div>
     </div>
   </section>
@@ -364,9 +364,9 @@
       <div>
         <h4>Firm</h4>
         <ul>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="https://www.defendmelaw.com/about-melaw">About Us</a></li>
           <li><a href="#difference">Why Us</a></li>
-          <li><a href="#team">Attorneys</a></li>
+          <li><a href="https://www.defendmelaw.com/attorneys">Attorneys</a></li>
           <li><a href="#serve">Who We Serve</a></li>
           <li><a href="https://www.defendmelaw.com/firm-news">Firm News</a></li>
         </ul>
