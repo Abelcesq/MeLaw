@@ -787,3 +787,47 @@ body:not(.tweak-mobile-overlay-menu-secondary-style-button):not(.tweak-mobile-ov
   }
 
 }
+
+// ===========================================================================
+//  ME Law fix: guarantee the mobile menu (hamburger) is visible in black.
+//  The stock ancillary-layout system was not revealing the menu-icon
+//  container on mobile, so force-show the menu button and its container and
+//  paint the hamburger black regardless of the Style Editor "Menu Icon Color".
+// ===========================================================================
+@media screen and (max-width: 640px) {
+
+  // Reveal whichever mobile-bar container holds the menu icon.
+  [data-nc-base="mobile-bar"] [data-nc-container="top-right"],
+  [data-nc-base="mobile-bar"] [data-nc-container="bottom-left"] {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+
+  // Force the button and the hamburger glyph visible.
+  .Mobile-bar-menu {
+    display: -webkit-inline-box !important;
+    display: -ms-inline-flexbox !important;
+    display: inline-flex !important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .Mobile-bar-menu .Icon--hamburger { display: block !important; }
+
+  // Paint it black so it stands out on the light header.
+  .Mobile-bar-menu,
+  .Mobile-bar-menu .Icon--hamburger,
+  .Mobile-bar-menu .Icon--hamburger .use--even,
+  .Mobile-bar-menu .Icon--hamburger .use--odd {
+    stroke: #000 !important;
+    fill: #000 !important;
+  }
+
+}
