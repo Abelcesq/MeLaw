@@ -832,13 +832,14 @@ body:not(.tweak-mobile-overlay-menu-secondary-style-button):not(.tweak-mobile-ov
     left: 7px;
     right: 7px;
     height: 2.4px !important;
-    background: #000 !important;
+    // Match the "ME LAW" mobile logo color (yellow).
+    background: @tweak-mobile-bar-branding-site-title-color !important;
     border-radius: 1px;
   }
   .Mobile-bar-menu::before {
     top: 8px;
-    -webkit-box-shadow: 0 6px 0 #000 !important;
-            box-shadow: 0 6px 0 #000 !important; // middle bar
+    -webkit-box-shadow: 0 6px 0 @tweak-mobile-bar-branding-site-title-color !important;
+            box-shadow: 0 6px 0 @tweak-mobile-bar-branding-site-title-color !important; // middle bar
   }
   .Mobile-bar-menu::after {
     top: 20px; // bottom bar
