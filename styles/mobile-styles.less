@@ -830,4 +830,15 @@ body:not(.tweak-mobile-overlay-menu-secondary-style-button):not(.tweak-mobile-ov
     fill: #000 !important;
   }
 
+  // The hamburger is an EXTERNAL SVG sprite (/assets/ui-icons.svg#...), whose
+  // internal color often can't be overridden by the host page's fill/stroke
+  // (notably on iOS Safari). brightness(0) forces the RENDERED icon to solid
+  // black regardless of its source color, so it always shows on a light header.
+  .Mobile-bar-menu,
+  .Mobile-bar-menu .Icon,
+  .Mobile-bar-menu .Icon--hamburger {
+    -webkit-filter: brightness(0) !important;
+            filter: brightness(0) !important;
+  }
+
 }
