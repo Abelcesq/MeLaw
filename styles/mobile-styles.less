@@ -810,35 +810,38 @@ body:not(.tweak-mobile-overlay-menu-secondary-style-button):not(.tweak-mobile-ov
             justify-content: flex-end;
   }
 
-  // Force the button and the hamburger glyph visible.
+  // The stock hamburger is an external SVG sprite (/assets/ui-icons.svg#...)
+  // that will not render/color reliably in this context (it stayed invisible
+  // regardless of fill/stroke/filter). So HIDE it and DRAW our own three black
+  // bars on the button using pseudo-elements — no sprite, no external file,
+  // guaranteed to show. The button's tap handler is untouched (menu still opens).
   .Mobile-bar-menu {
+    position: relative !important;
     display: -webkit-inline-box !important;
     display: -ms-inline-flexbox !important;
     display: inline-flex !important;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    width: 34px !important;
+    height: 28px !important;
+    padding: 0 !important;
   }
-  .Mobile-bar-menu .Icon--hamburger { display: block !important; }
-
-  // Paint it black so it stands out on the light header.
-  .Mobile-bar-menu,
-  .Mobile-bar-menu .Icon--hamburger,
-  .Mobile-bar-menu .Icon--hamburger .use--even,
-  .Mobile-bar-menu .Icon--hamburger .use--odd {
-    stroke: #000 !important;
-    fill: #000 !important;
+  .Mobile-bar-menu .Icon { display: none !important; }
+  .Mobile-bar-menu::before,
+  .Mobile-bar-menu::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 7px;
+    right: 7px;
+    height: 2.4px !important;
+    background: #000 !important;
+    border-radius: 1px;
   }
-
-  // The hamburger is an EXTERNAL SVG sprite (/assets/ui-icons.svg#...), whose
-  // internal color often can't be overridden by the host page's fill/stroke
-  // (notably on iOS Safari). brightness(0) forces the RENDERED icon to solid
-  // black regardless of its source color, so it always shows on a light header.
-  .Mobile-bar-menu,
-  .Mobile-bar-menu .Icon,
-  .Mobile-bar-menu .Icon--hamburger {
-    -webkit-filter: brightness(0) !important;
-            filter: brightness(0) !important;
+  .Mobile-bar-menu::before {
+    top: 8px;
+    -webkit-box-shadow: 0 6px 0 #000 !important;
+            box-shadow: 0 6px 0 #000 !important; // middle bar
+  }
+  .Mobile-bar-menu::after {
+    top: 20px; // bottom bar
   }
 
 }
